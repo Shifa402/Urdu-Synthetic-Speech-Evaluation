@@ -1,0 +1,29 @@
+{
+  "n_pairs": 960,
+  "n_ok": 960,
+  "n_fail": 0,
+  "mcd_db_mean": 570.9170628095661,
+  "mcd_db_std": 109.87692161723425,
+  "f0_rmse_cents_mean": 619.3448738105571,
+  "f0_rmse_cents_std": 229.44102774544973,
+  "config": {
+    "root": "audio",
+    "manifest": "evaluation/speech_nlp_pairs.csv",
+    "domains": [
+      "Emotional",
+      "Conversational",
+      "Formal",
+      "Literary_storytelling"
+    ],
+    "ref_name": "reference",
+    "gen_name": "generated",
+    "sr": 16000,
+    "frame_ms": 5.0,
+    "f0_floor": 50.0,
+    "f0_ceil": 800.0,
+    "n_mfcc": 25,
+    "n_fft": 1024,
+    "out_dir": "evaluation/results",
+    "dry_run": false
+  }
+}
