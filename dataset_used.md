@@ -11,7 +11,7 @@ This study employs a carefully curated multi-domain corpus of Urdu speech record
 The evaluation protocol distinguishes between two categories of metrics based on the mode of assessment:
 
 - **Embedding-based Scores** (automated, signal-level): **60 samples per domain** are used to ensure statistical robustness in feature-space comparisons.
-- **Perceptual Listening Tests** (human judgment-based): **30 samples per domain** are used across the remaining three evaluation measures, balancing annotation burden with sufficient coverage for reliable inference.
+- **Perceptual Listening Tests** (human judgment-based): **6 samples per domain** are used across the remaining three evaluation measures, balancing annotation burden with sufficient coverage for reliable inference.
 
 ---
 
