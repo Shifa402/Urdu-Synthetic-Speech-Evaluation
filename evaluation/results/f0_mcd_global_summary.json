@@ -2,10 +2,14 @@
   "n_pairs": 960,
   "n_ok": 960,
   "n_fail": 0,
-  "mcd_db_mean": 570.9170628095661,
-  "mcd_db_std": 109.87692161723425,
-  "f0_rmse_cents_mean": 619.3448738105571,
-  "f0_rmse_cents_std": 229.44102774544973,
+  "mcd_db_mean": 8.980730599841168,
+  "mcd_db_std": 2.7726317335340704,
+  "f0_rmse_cents_mean": 513.4383233182875,
+  "f0_rmse_cents_std": 131.7211946010341,
+  "f0_rmse_cents_raw_mean": 619.3448738105571,
+  "f0_fpe_cents_mean": 171.4566396205829,
+  "f0_fpe_cents_std": 16.495429077489337,
+  "f0_gpe_mean": 0.6041490408519095,
   "config": {
     "root": "audio",
     "manifest": "evaluation/speech_nlp_pairs.csv",
@@ -23,7 +27,7 @@
     "f0_ceil": 800.0,
     "n_mfcc": 25,
     "n_fft": 1024,
-    "out_dir": "evaluation/results",
+    "out_dir": "evaluation/results_new",
     "dry_run": false
   }
 }
