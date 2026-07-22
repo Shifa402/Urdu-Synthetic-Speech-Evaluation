@@ -78,3 +78,7 @@ The combination of these two sources ensures broad coverage of formal, read-styl
 | Emotional             | Mendeley Urdu Emotional Speech (v4)    | Male   | 60                 | 6                 |
 | Literary/Storytelling | Humairawan/UrduSpeech                  | Male   | 60                 | 6                 |
 | Formal/Read Speech    | Google FLEURS + Humairawan/UrduSpeech  | Male   | 60                 | 6                 |
+
+---
+
+The annotated dataset used in this study can be accessed with prior permission via this link: https://drive.google.com/file/d/1MfeXJ-LWh1SXptU5gUbXckh27YLMURNW/view?usp=drive_link
