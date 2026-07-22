@@ -35,16 +35,13 @@ Samples for this domain are drawn from the `Humairawan/UrduSpeech` dataset hoste
 **Dataset:** Mendeley Data — Urdu Emotional Speech Corpus (Version 4)
 **Source:** [https://data.mendeley.com/datasets/jcpfjnk5c2/4](https://data.mendeley.com/datasets/jcpfjnk5c2/4)
 
-Ten samples per emotion category are selected from this corpus, covering a range of affective states representative of expressive speech synthesis challenges. The **Neutral** category is deliberately excluded from evaluation, as it overlaps semantically with the Formal/Read Speech domain already included in this study. The following emotion categories and their corresponding male-speaker file indices are used:
-
-| Emotion   | File Indices (Male Speakers)                       |
-|-----------|----------------------------------------------------|
-| Angry     | Files 1–9, File 19                                 |
-| Boredom   | Files 90–99                                        |
-| Disgust   | Files 81–90                                        |
-| Fear      | Files 63–72                                        |
-| Happy     | Files 64–73                                        |
-| Sad       | Files 60–65, Files 54–57                           |
+Ten samples per emotion category are selected from this corpus, covering a range of affective states representative of expressive speech synthesis challenges. The **Neutral** category is deliberately excluded from evaluation, as it overlaps semantically with the Formal/Read Speech domain already included in this study. The following emotion categories are used:
+1. Angry     
+2. Boredom  
+3. Disgust
+4. Fear
+5. Happy
+6. Sad
 
 ---
 
