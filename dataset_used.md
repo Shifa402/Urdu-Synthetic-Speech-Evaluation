@@ -72,9 +72,9 @@ The combination of these two sources ensures broad coverage of formal, read-styl
 
 ## Summary Table
 
-| Domain              | Dataset(s)                             | Style Filter | Gender | Embedding Eval (n) | Listening Eval (n) |
-|---------------------|----------------------------------------|--------------|--------|--------------------|--------------------|
-| Conversational      | Humairawan/UrduSpeech                  | `CONV`       | Male   | 60                 | 30                 |
-| Emotional           | Mendeley Urdu Emotional Speech (v4)    | Per emotion  | Male   | 60                 | 30                 |
-| Literary/Storytelling | Humairawan/UrduSpeech               | `BOOK`       | Male   | 60                 | 30                 |
-| Formal/Read Speech  | Google FLEURS + Humairawan/UrduSpeech  | `WIKI`       | Male   | 60                 | 30                 |
+| Domain                | Dataset(s)                             | Gender | Embedding Eval (n) | Listening Eval (n)|
+|-----------------------|----------------------------------------|--------|--------------------|-------------------|
+| Conversational        | Humairawan/UrduSpeech                  | Male   | 60                 | 6                 |
+| Emotional             | Mendeley Urdu Emotional Speech (v4)    | Male   | 60                 | 6                 |
+| Literary/Storytelling | Humairawan/UrduSpeech                  | Male   | 60                 | 6                 |
+| Formal/Read Speech    | Google FLEURS + Humairawan/UrduSpeech  | Male   | 60                 | 6                 |
