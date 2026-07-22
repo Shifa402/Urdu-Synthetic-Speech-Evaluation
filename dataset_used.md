@@ -35,7 +35,7 @@ Samples for this domain are drawn from the `Humairawan/UrduSpeech` dataset hoste
 **Dataset:** Mendeley Data — Urdu Emotional Speech Corpus (Version 4)
 **Source:** [https://data.mendeley.com/datasets/jcpfjnk5c2/4](https://data.mendeley.com/datasets/jcpfjnk5c2/4)
 
-Ten samples per emotion category are selected from this corpus, covering a range of affective states representative of expressive speech synthesis challenges. The **Neutral** category is deliberately excluded from evaluation, as it overlaps semantically with the Formal/Read Speech domain already included in this study. The following emotion categories are used:
+Ten samples per emotion category are selected from this corpus, covering a range of affective states representative of expressive speech synthesis challenges. The **Neutral** category is deliberately excluded from evaluation, as it overlaps semantically with the Formal and Conversational Speech domain already included in this study. The following emotion categories are used:
 1. Angry     
 2. Boredom  
 3. Disgust
