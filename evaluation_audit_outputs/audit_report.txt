@@ -1,0 +1,141 @@
+================================================================================
+URDU TTS EVALUATION DATA REPRODUCTION & INTEGRITY AUDIT
+================================================================================
+
+1. AUDIT: f0_mcd_per_file_scores.csv
+   Total rows: 960
+   Unique domains: ['Conversational', 'Emotional', 'Formal', 'Literary_storytelling']
+   Unique TTS models: ['edgetts', 'gemini', 'indic_parler', 'mmstts']
+   Distribution across models:
+tts_model
+edgetts         240
+gemini          240
+indic_parler    240
+mmstts          240
+   Distribution across domains:
+domain
+Conversational           240
+Emotional                240
+Formal                   240
+Literary_storytelling    240
+
+   Missing/Null Value Audit per Column:
+     - domain              : 960 finite, 0 null/NaN
+     - ref                 : 960 finite, 0 null/NaN
+     - gen                 : 960 finite, 0 null/NaN
+     - stem                : 960 finite, 0 null/NaN
+     - ok                  : 960 finite, 0 null/NaN
+     - tts_model           : 960 finite, 0 null/NaN
+     - formal_subset       : 240 finite, 720 null/NaN
+     - mcd_db              : 960 finite, 0 null/NaN
+     - mcd_db_librosa      : 960 finite, 0 null/NaN
+     - f0_rmse_cents       : 958 finite, 2 null/NaN
+     - f0_rmse_cents_raw   : 958 finite, 2 null/NaN
+     - f0_fpe_cents        : 956 finite, 4 null/NaN
+     - f0_gpe              : 958 finite, 2 null/NaN
+     - f0_mae_hz           : 958 finite, 2 null/NaN
+     - n_dtw_frames        : 960 finite, 0 null/NaN
+     - n_f0_frames_used    : 960 finite, 0 null/NaN
+     - fastdtw_dist        : 960 finite, 0 null/NaN
+
+   Investigating Missing F0 Rows (2 rows):
+     Row 86: Domain=Conversational, Model=gemini, Stem=sample_32, ok=True, n_f0_frames_used=0, mcd_db=13.366
+       Reason: n_f0_frames_used = 0 (no shared voiced frames found during DTW alignment)
+     Row 169: Domain=Conversational, Model=indic_parler, Stem=sample_53, ok=True, n_f0_frames_used=0, mcd_db=17.310
+       Reason: n_f0_frames_used = 0 (no shared voiced frames found during DTW alignment)
+
+2. DATA INTEGRITY & DUPLICATE CHECK:
+   CRITICAL AUDIT FINDING: Indic-Parler vs MMS-TTS on FLEURS (30 files)
+     MCD max difference: 0.0
+     F0 max difference:  0.0
+     Are scores 100% identical duplicates?: True
+     Consequence in Manuscript Table 10: Both Indic and MMS reported as 10.37 dB.
+     Consequence in Manuscript Table 12: Both Indic and MMS reported as 470.66 cents.
+     Scientific status: Severe artifact/pipeline failure where one model's FLEURS audio/scores were duplicated for the other.
+
+3. RECALCULATION & DISCREPANCY AUDIT:
+
+   Recalculated Per-System MCD (dB):
+     edgetts        : mean=7.9583, std=3.0965, n=240
+     gemini         : mean=9.8111, std=2.9455, n=240
+     indic_parler   : mean=8.2726, std=2.3761, n=240
+     mmstts         : mean=9.8808, std=1.9773, n=240
+
+   Recalculated Per-System F0 RMSE Standard Cents (f0_rmse_cents):
+     edgetts        : mean=515.6149, std=133.4115, n=240
+     gemini         : mean=520.4159, std=136.5148, n=239
+     indic_parler   : mean=520.9360, std=134.3562, n=239
+     mmstts         : mean=496.8469, std=121.7703, n=240
+
+   Recalculated Per-System F0 RMSE Raw Cents (f0_rmse_cents_raw):
+     edgetts        : mean=574.5811, std=214.2462, n=240
+     gemini         : mean=669.2901, std=264.5142, n=239
+     indic_parler   : mean=641.3372, std=225.0954, n=239
+     mmstts         : mean=592.4708, std=198.1548, n=240
+
+   Comparison with Manuscript Table 10 (MCD overall means):
+     edgetts        : Manuscript=  7.91 | Recalculated= 7.958 | Diff=+0.048
+     gemini         : Manuscript=  9.79 | Recalculated= 9.811 | Diff=+0.021
+     indic_parler   : Manuscript=  8.41 | Recalculated= 8.273 | Diff=-0.137
+     mmstts         : Manuscript=  9.93 | Recalculated= 9.881 | Diff=-0.049
+
+   Comparison with Manuscript Table 12 (F0 RMSE overall means):
+   Note: Checking whether Manuscript reported unweighted domain average or raw vs std column:
+     edgetts        : Manuscript= 565.00 | Recalc_Std= 515.61 | Recalc_Raw= 574.58
+     gemini         : Manuscript= 646.10 | Recalc_Std= 520.42 | Recalc_Raw= 669.29
+     indic_parler   : Manuscript= 614.11 | Recalc_Std= 520.94 | Recalc_Raw= 641.34
+     mmstts         : Manuscript= 573.17 | Recalc_Std= 496.85 | Recalc_Raw= 592.47
+
+   Recalculated Per-Domain MCD (dB) vs Manuscript Table 9:
+     Conversational        : MS Mean=6.90, SD=1.76 | Recalc Mean=6.903, SD=1.761
+     Literary_storytelling : MS Mean=7.87, SD=1.56 | Recalc Mean=7.868, SD=1.558
+     Formal                : MS Mean=9.12, SD=1.79 | Recalc Mean=9.123, SD=1.785
+     Emotional             : MS Mean=12.03, SD=2.69 | Recalc Mean=12.030, SD=2.687
+
+   Recalculated Per-Domain F0 RMSE vs Manuscript Table 11:
+     Literary_storytelling : MS Mean=521.24, SD=89.63 | Raw Mean=521.24, SD=89.63 | Std Mean=466.42, SD=78.27
+     Formal                : MS Mean=520.98, SD=95.67 | Raw Mean=520.98, SD=95.67 | Std Mean=476.21, SD=76.87
+     Conversational        : MS Mean=546.02, SD=114.25 | Raw Mean=546.02, SD=114.25 | Std Mean=490.70, SD=96.12
+     Emotional             : MS Mean=888.54, SD=288.75 | Raw Mean=888.54, SD=288.75 | Std Mean=620.24, SD=181.02
+   DISCOVERY: Table 11 reports f0_rmse_cents_raw for Emotional (888.54, SD 288.75 matches exactly!),
+   BUT for other domains, it used raw column too: Lit=521.24 (raw 521.235, SD 89.63 matches!),
+   Formal=520.98 (raw 520.978, SD 95.67 matches!), Conv=546.02 (raw 546.023, SD 114.25 matches!).
+   Conclusion: The manuscript Table 11 and Table 12 exclusively reported f0_rmse_cents_raw!
+
+4. SPEAKER SIMILARITY RECALCULATION & BOLDING AUDIT:
+
+   Recalculated Table 7 (Speaker Similarity):
+               Domain  Edge TTS  Gemini TTS  Indic-Parler-TTS  MMS-TTS
+       Conversational    0.6893      0.6303            0.7320   0.5788
+Literary/Storytelling    0.7373      0.6676            0.7624   0.6032
+               Formal    0.6502      0.6289            0.6531   0.6546
+            Emotional    0.5638      0.5196            0.5184   0.5672
+         Overall Mean    0.6601      0.6116            0.6665   0.6010
+
+   CRITICAL BOLDING CHECK in Table 7:
+     Edge TTS Overall Mean:         0.6601
+     Indic-Parler-TTS Overall Mean: 0.6665
+     Manuscript Table 7 text has: Edge TTS = 0.6329, Indic-Parler-TTS = \textbf{0.6312}
+     Audit finding: Edge TTS (0.6329) is numerically strictly HIGHER than Indic-Parler (0.6312),
+     yet the manuscript author mistakenly bolded Indic-Parler-TTS (0.6312)!
+
+5. GLOBAL SUMMARY JSON AUDIT:
+   Config in JSON:
+     root: audio
+     manifest: evaluation/speech_nlp_pairs.csv
+     domains: ['Emotional', 'Conversational', 'Formal', 'Literary_storytelling']
+     ref_name: reference
+     gen_name: generated
+     sr: 16000
+     frame_ms: 5.0
+     f0_floor: 50.0
+     f0_ceil: 800.0
+     n_mfcc: 25
+     n_fft: 1024
+     out_dir: evaluation/results_new
+     dry_run: False
+   JSON reported n_pairs: 960, n_ok: 960, n_fail: 0
+   JSON mcd_db_mean: 8.9807 (Recalculated from per-file: 8.9807)
+   JSON f0_rmse_cents_mean: 513.4383 (Recalculated from per-file: 513.4383)
+   JSON f0_rmse_cents_raw_mean: 619.3449 (Recalculated from per-file: 619.3449)
+   DISCREPANCY IN n_ok: JSON claims 960 ok and 0 fail, but 2 rows have NaN F0 scores!
